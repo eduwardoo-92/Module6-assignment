@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
 
     form.addEventListener('submit', e => {
         e.preventDefault()
-        const info = ['8-digit Employee ID', 'full Name', '4-digit Extension', 'Email', 'Department' ]
+        const info = ['employeeID', 'fullName', 'extension', 'email', 'department' ]
 
             .map(id=> `${id}: ${getElement(id).value}`)
             .join('\n')

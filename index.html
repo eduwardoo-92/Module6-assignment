@@ -19,44 +19,50 @@
     <form id="empForm" class="p-4 border rounded">
         <!--8 digit employee-->
         <div class="mb-3">
-            <label for = "8-Digit Employee ID" class="form-label">8-Digit Employee ID:</label>
-            <input type="text" class="form-control" id="8-digit Employee ID" name="8-Digit Employee ID" required>
+            <label for = "employeeID" class="form-label">8-Digit Employee ID:</label>
+            <input type="text" class="form-control" id="employeeID" name="employeeID" required>
         </div>
         <!--Full name -->
         <div class="mb-3">
-            <label for="full name" class="form-label">Full Name:</label>
-            <input type="text" class="form-control" id="full name" name="full name" required>
+            <label for="fullName" class="form-label">Full Name:</label>
+            <input type="text" class="form-control" id="fullName" name="fullName" required>
         </div>
-        <!--4digit ext-->
+        <!--4-digit ext-->
         <div class="mb-3">
-            <label for="department" class="form-label">4-Digit Extension:</label>
-            <input type="text" class="form-control" id="4-digit extension" name="4-digit extension" required>
+            <label for="extension" class="form-label">4-Digit Extension:</label>
+            <input type="text" class="form-control" id="extension" name="extension" required>
         </div>
         <!--email-->
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <input type="text" class="form-control" id="email" name="email" required>
         </div>
         <!-- dept -->
         <div class="mb-3">
-            <label for="department" class="form-label">Department:</label>
-            <input type="department" class="form-control" id="department" name="department" required>
+            <label for="department" class="form-label">Choose Department:</label>
+            <select name="department" id="department" class="form-control" required>
+                <option value = "Administrative">Administrative</option>
+                <option value = "Engineering">Engineering</option>
+                <option value = "Executive">Executive</option>
+                <option value = "Marketing">Marketing</option>
+                <option value = "Quality Assurance">Quality Assurance</option>
+                <option value = "Sales">Sales</option> 
         </div>
         <button type="submit" class="btn btn-primary">Add Employee</button>
     </form>
     <script>
         window.addEventListener('load', () => {
-            const getElement = id => document.getElementById(id);
-            const form = getElement('empForm');
+            const getElement = id => document.getElementById(id)
+            const form = getElement('empForm')
 
             form.addEventListener('submit', e => {
-                e.preventDefault();
-                const data = ['8-digit employee id', 'full name', '4-digit extension', 'email', 'department']
+                e.preventDefault()
+                const data = ['employeeId', 'fullName', 'extension', 'email', 'department']
                     .map(id => `${id}: ${getElement(id).value}`)
-                    .join('\n');
-                console.log(`Employee Added:\n${data}`);
-            });
-        });
+                    .join('\n')
+                console.log(`Employee Added:\n${data}`)
+            })
+        })
     </script>
 </body>
 </html>
