@@ -16,8 +16,47 @@
 </head>
 <body class="m-4">
     <h1>Employee Management System</h1>
-    <form id="empForm">
-     
+    <form id="empForm" class="p-4 border rounded">
+        <!--8 digit employee-->
+        <div class="mb-3">
+            <label for = "8-Digit Employee ID" class="form-label">8-Digit Employee ID:</label>
+            <input type="text" class="form-control" id="8-digit Employee ID" name="8-Digit Employee ID" required>
+        </div>
+        <!--Full name -->
+        <div class="mb-3">
+            <label for="full name" class="form-label">Full Name:</label>
+            <input type="text" class="form-control" id="full name" name="full name" required>
+        </div>
+        <!--4digit ext-->
+        <div class="mb-3">
+            <label for="department" class="form-label">4-Digit Extension:</label>
+            <input type="text" class="form-control" id="4-digit extension" name="4-digit extension" required>
+        </div>
+        <!--email-->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <!-- dept -->
+        <div class="mb-3">
+            <label for="department" class="form-label">Department:</label>
+            <input type="department" class="form-control" id="department" name="department" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Employee</button>
     </form>
+    <script>
+        window.addEventListener('load', () => {
+            const getElement = id => document.getElementById(id);
+            const form = getElement('empForm');
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                const data = ['8-digit employee id', 'full name', '4-digit extension', 'email', 'department']
+                    .map(id => `${id}: ${getElement(id).value}`)
+                    .join('\n');
+                console.log(`Employee Added:\n${data}`);
+            });
+        });
+    </script>
 </body>
 </html>
